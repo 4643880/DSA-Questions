@@ -40,6 +40,20 @@ void nCr(int n, int r){
     cout << "Result of Factorial is: " << answer << endl;
 }
 
+
+void isPrime(int n){
+    cout << endl;
+    for(int i = 2; i <= n-1; i++){
+        if(n%i != 0){
+            cout << "It's a prime number " << n << endl;
+            break;
+        }else{
+            cout << "It's not a prime number " << n << endl;
+            break;
+        }
+    }
+}
+
 int main(){
     // pow(a,b) means 2 power 3 if a = 2 and b = 3
 
@@ -56,6 +70,7 @@ int main(){
     // Created Factorial Calculator
     cout << "Facotorial of 5 is: " << factorial(5);
 
-    
+    // Checking value is prime or not
+    isPrime(17);
     return 0;
 }
