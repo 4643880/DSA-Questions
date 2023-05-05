@@ -1,0 +1,6 @@
+=> cin stops execution when we write space,tab, or enter 
+
+
+    cout << "Please Enter a String e.g testsample => ans will be : 'e' " << endl;
+    string str;
+    getline(cin,str);
