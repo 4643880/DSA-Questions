@@ -8,11 +8,21 @@ class Node {
         int data; // data
         Node* next; // pointer that will store address of next node
 
-
     // Constructor
     Node(int data){
         this->data = data;
         this->next = NULL;
+    }
+
+    // Destructure
+    ~Node(){
+        int value = this->data;
+
+        if(this->next != NULL){
+            delete next;
+            this->next = NULL;    
+        }
+        cout << "Memory is free for Node with Data: " << value << endl;
     }
 };
 
@@ -52,6 +62,40 @@ void insertAtPosition(Node* &head, int position, int myData){
 }
 
 
+void deleteNodeFromPosition(int position, Node* &head){
+    // Cases 3: I want to delete from middle, start, last
+
+    // Deleting from start
+    if(position == 1){
+        // Memory Free for first node
+        Node* temp = head;
+        // Now pointing the head at 2nd index because I want to delete the first
+        head = head->next;
+        
+        temp->next = NULL;
+        delete temp;
+    }else{
+    // Deleting from end or middle
+
+    Node* current = head;
+    Node* previous = NULL;
+    int counter = 1; // In the beginning head is at the first postion if I want to insert at 3rd 
+
+    // E.g I want to insert at n position and I have to traverse until i dont' reach at n-1
+    while(counter < position){
+        previous = current;
+        current = current->next; // traversing
+        counter++;
+    }
+    
+    // E.g 10, 12, 14 and I want to delte 12, 10 is previous & 12 is current, now will connect 10.next with 14.next
+    previous->next = current->next;
+    current->next = NULL;
+    delete current;
+
+    }
+}
+
 void print(Node* &head){
     // Because head is pass by reference so, i don't want to do changes in original head
     // I'll create a temporary pointer then will assign head to it.
@@ -89,6 +133,9 @@ int main(){
     insertAtTail(tail, 4);
     insertAtTail(tail, 2);
     insertAtPosition(head, 5, 50);
+
+
+    deleteNodeFromPosition(5, head);
 
 
     print(head);
