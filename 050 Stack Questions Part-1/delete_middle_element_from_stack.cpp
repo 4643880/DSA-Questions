@@ -9,10 +9,21 @@
 // |2|
 // Need to remove mid => 6
 
+// Note: For Printing don't forget to create copy otherwise during the printing it will pop origional stack
 // Step 1: base case
 // Step 2: store top element then pop it
 // Step 3: recursive call with ++count or count+1, count++ will not work
 // Step 4: push back the top element again into the stack
+
+
+//  // Crating copy of stack
+//  stack<int> copyStack = st;
+//  while (!copyStack.empty())
+//  {
+//      cout << copyStack.top() << " ";
+//      copyStack.pop();
+//  }
+
 
 void solve(stack<int>&inputStack,int count, int size){
    int mid = size/2;
