@@ -1,9 +1,11 @@
+
+
 #include<iostream>
 #include<array>
 
 using namespace std;
 
-void mergeArrays(int arr1[], int size1, int arr2[], int size2, int arr3[]){
+void mergeArrays(int *arr1, int size1, int *arr2, int size2, int *arr3){
     
     int i = 0, j= 0;
     int k = 0;
@@ -49,9 +51,13 @@ void printArray(int arr[], int size){
 int main(){
    
    int arr1[6] = {1,3,5,7,9,11};
-   int arr2[4] = {2,4,6,8};
+   int size1 = sizeof(arr1) / sizeof(int);
 
-   int arr3[9] = {0};
+   int arr2[4] = {2,4,6,8};
+   int size2 = sizeof(arr2) / sizeof(int);
+
+   int arr3[10] = {0};
+
 
    mergeArrays(arr1,6,arr2,4, arr3);
 
