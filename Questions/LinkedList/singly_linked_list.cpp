@@ -84,7 +84,6 @@ void insertAtPosition(Node* &head, Node* &tail,  int data, int position){
 }
 
 
-
 void printLinkedList(Node* &head){
     Node* temp = head;
 
@@ -93,6 +92,18 @@ void printLinkedList(Node* &head){
         temp = temp->next;
     }
     cout << endl;
+}
+
+
+void getLength(Node* &head){
+    Node* temp = head;
+
+    int counter = 0;
+    while(temp != NULL){
+        temp = temp->next;
+        counter++;
+    }
+    cout << "Length of the linkedlist is: " << counter << endl;
 }
 
 
